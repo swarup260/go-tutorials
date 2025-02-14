@@ -8,6 +8,7 @@ func foo(a string) (string,string) {
 }
 
 func SliceRange() {
+	// https://go.dev/blog/slices-intro
 	var a []string               // define a slice
 	b := []string{"a", "b", "c"} // define a slice with initial values
 	/*
