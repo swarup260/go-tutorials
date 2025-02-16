@@ -3,9 +3,52 @@ package main
 import (
 	"fmt"
 )
+
+/*
+When you have multiple consecutive parameters of the same type, 
+you may omit the type name for the like-typed parameters up to \
+the final parameter that declares the type.
+*/
+func plusPlus(a, b, c int) int {
+    return a + b + c
+}
+
+// single return value * it won’t automatically return the value of the last expression.
+func add(a int,b int) int {
+	return a + b
+}
+
+// multiple return values
 func foo(a string) (string,string) {
 	return a,"extra"
 }
+
+func foobar(a string) (string,string,string) {
+	return a,"extra","more"
+}
+
+// Variadic Functions
+// can be called with any number of trailing arguments
+func sum(nums ...int) int {
+	fmt.Println(nums, " ")
+	sum := 0
+	for _,num := range(nums){
+		sum += num
+	}
+	return sum
+}
+
+// Closures
+// which can form closures.
+//  Anonymous functions are useful when you want to define a function inline without having to name it
+func intSeq() func() int {
+    i := 0
+    return func() int {
+        i++
+        return i
+    }
+}
+
 
 func SliceRange() {
 	// https://go.dev/blog/slices-intro
@@ -50,4 +93,18 @@ func SliceRange() {
 
 	fmt.Println(extra)
 
+	fmt.Println(add(1,2))
+
+	_,f,g := foobar("n")
+	fmt.Println(f,g)
+
+
+	nums := []int{1,2,3,4}
+	fmt.Println(sum(nums...))
+
+	nextInt := intSeq()
+
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
+	fmt.Println(nextInt())
 }
