@@ -3,5 +3,7 @@ package main
 
 func main() {
 	// VariablesArray()
-	SliceRange()
+	// SliceRange()
+	// PointerError()
+	StringExample()
 }

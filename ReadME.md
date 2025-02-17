@@ -55,3 +55,23 @@ This change is visible in both arr and slice1. However, slice2 remains unaffecte
 Understanding that slices are views into shared data is crucial for effective and error-free programming in Go.
 
 
+## Pointer
+
+zeroval has an int parameter, so arguments will be passed to it by value. zeroval will get a copy of ival distinct from the one in the calling function.
+
+```go
+func zeroval(ival int) {
+    ival = 0
+}
+
+```
+zeroptr in contrast has an *int parameter, meaning that it takes an int pointer. The *iptr code in the function body then dereferences the pointer from its memory address to the current value at that address. Assigning a value to a dereferenced pointer changes the value at the referenced address.
+
+```go
+
+func zeroptr(iptr *int) {
+    *iptr = 0
+}
+
+```
+
